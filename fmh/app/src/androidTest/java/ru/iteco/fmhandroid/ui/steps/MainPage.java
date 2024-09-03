@@ -5,6 +5,7 @@ import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
@@ -12,6 +13,7 @@ import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.not;
 
 import static ru.iteco.fmhandroid.ui.data.Helper.elementWaiting;
+import static ru.iteco.fmhandroid.ui.data.Helper.waitDisplayed;
 import static ru.iteco.fmhandroid.ui.data.Helper.withIndex;
 
 import io.qameta.allure.kotlin.Allure;
@@ -25,10 +27,12 @@ public class MainPage {
     public void checkMainLoad() {
         Allure.step("Загрузка страницы");
         elementWaiting(withText("Новости"), 10000);
+//        onView(isRoot()).perform(waitDisplayed(withId(R.id.all_news_text_view), 7000));
     }
 
     public void checkLogo() {
         Allure.step("Проверить отображение Главной страницы");
+        onView(isRoot()).perform(waitDisplayed(withId(R.id.all_news_text_view), 7000));
         mainElements.logo.check(matches(isDisplayed()));
         mainElements.titleNews.check(matches(isDisplayed()));
         mainElements.allNewsButton.check(matches(isDisplayed()));

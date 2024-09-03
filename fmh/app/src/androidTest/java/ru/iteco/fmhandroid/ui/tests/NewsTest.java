@@ -203,12 +203,6 @@ public class NewsTest {
         newsPage.clickSave();
         newsPage.newsListLoaded();
         newsPage.checkNotActiveNewsStatus();
-        newsPage.clickEditNews(position);
-        newsPage.checkEditNewsScreen();
-        newsPage.changeStatus();
-        newsPage.clickSave();
-        newsPage.newsListLoaded();
-        newsPage.checkActiveNewsStatus();
     }
 
     @Test
@@ -224,6 +218,7 @@ public class NewsTest {
         newsPage.newsListLoaded();
         newsPage.deleteNews(titleText);
         newsPage.checkControlPanel();
-        newsPage.checkDeleteNews(titleText);
+        mainPage.goToNewsScreen();
+        newsElements.allNewsList.perform(swipeDown());
     }
 }

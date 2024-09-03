@@ -9,6 +9,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
+import static ru.iteco.fmhandroid.ui.data.Helper.waitDisplayed;
 import static ru.iteco.fmhandroid.ui.data.Helper.waitForElement;
 import static ru.iteco.fmhandroid.ui.data.Helper.withIndex;
 
@@ -56,6 +57,7 @@ public class NewsPage {
 
     public void checkControlPanel() {
         Allure.step("Проверка отображения страницы Панель управления");
+        onView(isRoot()).perform(waitDisplayed(withId(R.id.add_news_image_view), 7000));
         newsElements.createNewsButton.check(matches(isDisplayed()));
     }
 
