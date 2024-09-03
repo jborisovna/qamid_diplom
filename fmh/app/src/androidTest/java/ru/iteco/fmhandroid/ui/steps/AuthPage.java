@@ -22,7 +22,6 @@ public class AuthPage {
 
     public void loadAuthPage() {
         Allure.step("Проверка отображения страницы авторизации");
-//        onView(isRoot()).perform(waitDisplayed(R.string.authorization, 5000));
         elementWaiting(withId(R.id.enter_button), 5000);
         authElements.auth.check(matches(isDisplayed()));
     }
