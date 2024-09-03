@@ -27,7 +27,6 @@ public class MainPage {
     public void checkMainLoad() {
         Allure.step("Загрузка страницы");
         elementWaiting(withText("Новости"), 10000);
-//        onView(isRoot()).perform(waitDisplayed(withId(R.id.all_news_text_view), 7000));
     }
 
     public void checkLogo() {
